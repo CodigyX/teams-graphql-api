@@ -3,7 +3,7 @@ ENV PYTHONDONTWRITEBYCODE 1
 ENV PYTHONBUFFERED 1
 
 RUN mkdir /teams
-WORKDIR /hackernews
+WORKDIR /teams
 COPY requirements.txt /teams/
 RUN pip install -r requirements.txt
 
