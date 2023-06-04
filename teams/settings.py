@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lwkz5*wcviwr=-naeq7x!x#(%4n!jf^!nmcqt06(d@yjsrbi(4'
+#SECRET_KEY = 'lwkz5*wcviwr=-naeq7x!x#(%4n!jf^!nmcqt06(d@yjsrbi(4'
+SECRET_KEY = config("PROD_SECRET_KEY", default='')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,14 +81,20 @@ WSGI_APPLICATION = 'teams.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+PROD_DATABASE = config("PROD_DATABASE", default='')
+PROD_USER = config("PROD_USER", default='')
+PROD_PASSWORD = config("PROD_PASSWORD", default='')
+PROD_HOST = config("PROD_HOST", default='')
+PROD_PORT = config("PROD_PORT", default=5432)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'teamgraph',
-        'USER': 'postgres',
-        'PASSWORD': 123456,
-        'HOST': 'localhost',
-        'PORT': 5432,
+        'NAME': PROD_DATABASE,
+        'USER': PROD_USER,
+        'PASSWORD': PROD_PASSWORD,
+        'HOST': PROD_HOST,
+        'PORT': PROD_PORT,
     }
 }
 
