@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: codigyx
+  name: codigy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: codigyx
+      app: codigy
   template:
     metadata:
       labels:
-        app: codigyx
+        app: codigy
     spec:
       containers:
       - image: okteto.dev/codigyx:latest
