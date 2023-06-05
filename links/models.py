@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Link(models.Model):
-    name = models.TextField(blank=True)
+    name = models.TextField()
     league = models.IntegerField()
     cup = models.IntegerField()
     concacaf = models.IntegerField()
