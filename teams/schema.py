@@ -1,7 +1,6 @@
 import graphene
 import links.schema
 import users.schema
-import graphene
 import graphql_jwt
 
 class Query(users.schema.Query, links.schema.Query, graphene.ObjectType):
