@@ -43,18 +43,8 @@ class CreateLink(graphene.Mutation):
         
 #3
     def mutate(self, info, name, league, cup, concacaf, age, stadium, state, country, nameleague, image):
-        link = Link(
-            name=name,
-            league=league,
-            cup=cup,
-            concacaf=concacaf,
-            age=age,
-            stadium=stadium,
-            state=state,
-            country=country,
-            nameleague=nameleague,
-            image=image
-        )
+        link = Link(name=name, league=league, cup=cup, concacaf=concacaf, age=age, stadium=stadium, state=state,
+            country=country, nameleague=nameleague, image=image)
         link.save()
 
         return CreateLink(
